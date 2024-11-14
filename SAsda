@@ -1,0 +1,235 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "🔥 RIVALS CHEAT 🔫",
+   LoadingTitle = "🔫 RIVALS CHEAT 💥",
+   LoadingSubtitle = "by Sosa",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Example Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Key | Youtube Hub",
+      Subtitle = "Key System",
+      Note = "Key In Discord Server",
+      FileName = "YoutubeHubKey1", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"test"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "Thank you for using my gui <3!!",
+   Content = "have fun!",
+   Duration = 5,
+   Image = 13047715178,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Toggle ESP",
+   Callback = function()
+       -- Toggle the infinite jump feature
+       _G.infinjump = not _G.infinjump
+
+       -- Run the test code
+       print("Running test code...")
+	   
+	   -- this script was made by @diesence on discord, dm for scripts!
+-- Loop through all players in the game and add a highlight to each player
+local Players = game:GetService("Players")
+
+-- Function to add highlight to a player
+local function addHighlightToPlayer(player)
+    -- Wait for the character to load
+    player.CharacterAdded:Connect(function(character)
+        -- Create a Highlight instance
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = character
+        highlight.FillTransparency = 0.5 -- Adjust for transparency
+        highlight.OutlineColor = Color3.new(1, 0, 0) -- Yellow outline
+        highlight.FillColor = Color3.new(1, 1, 1) -- White fill
+    end)
+    
+    -- Check if player already has a character loaded
+    if player.Character then
+        local character = player.Character
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = character
+        highlight.FillTransparency = 0.5
+        highlight.OutlineColor = Color3.new(1, 1, 0)
+        highlight.FillColor = Color3.new(1, 1, 1)
+    end
+end
+
+-- Add highlights to all players when they join
+for _, player in pairs(Players:GetPlayers()) do
+    addHighlightToPlayer(player)
+end
+
+-- Add highlights to players who join after this script runs
+Players.PlayerAdded:Connect(addHighlightToPlayer)
+
+
+       -- Insert the desired test function or code here
+       -- For example:
+       game.StarterGui:SetCore("SendNotification", {Title="Test", Text="Test code executed!", Duration=3})
+
+       -- Infinite jump functionality
+       if _G.infinJumpStarted == nil then
+           _G.infinJumpStarted = true
+           game.StarterGui:SetCore("SendNotification", {Title="ValorsHub"; Text="ESP Enabled"; Duration=5;})
+           local plr = game:GetService('Players').LocalPlayer
+           local m = plr:GetMouse()
+           m.KeyDown:connect(function(k)
+               if _G.infinjump then
+                   if k:byte() == 32 then
+                       local humanoid = game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+                       humanoid:ChangeState('Jumping')
+                       wait()
+                       humanoid:ChangeState('Seated')
+                   end
+               end
+           end)
+       end
+   end,
+})
+
+
+
+
+local Input = MainTab:CreateInput({
+   Name = "Walkspeed",
+   PlaceholderText = "1-500",
+   RemoveTextAfterFocusLost = true,
+   Callback = function(Text)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Text)
+   end,
+})
+
+local OtherSection = MainTab:CreateSection("Other")
+
+local Toggle = MainTab:CreateButton({
+   Name = "Fly",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        print("FARMING")
+		
+		local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local localPlayer = Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local flying = false
+local speed = 50 -- How fast the player moves while flying
+local flyHeight = 20 -- How high the player can fly
+local bodyGyro, bodyVelocity
+
+-- Function to start flying
+local function startFlying()
+    flying = true
+    -- Create a BodyGyro to keep the player upright while flying
+    bodyGyro = Instance.new("BodyGyro")
+    bodyGyro.MaxTorque = Vector3.new(400000, 400000, 400000)
+    bodyGyro.CFrame = humanoidRootPart.CFrame
+    bodyGyro.P = 5000
+    bodyGyro.Parent = humanoidRootPart
+
+    -- Create a BodyVelocity to control movement
+    bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.MaxForce = Vector3.new(400000, 400000, 400000)
+    bodyVelocity.Velocity = Vector3.new(0, flyHeight, 0) -- Add upward velocity
+    bodyVelocity.Parent = humanoidRootPart
+end
+
+-- Function to stop flying
+local function stopFlying()
+    flying = false
+    if bodyGyro then bodyGyro:Destroy() end
+    if bodyVelocity then bodyVelocity:Destroy() end
+end
+
+-- Function to handle flying controls
+local function flyMovement()
+    if flying then
+        local moveDirection = Vector3.new()
+
+        -- Forward/Backward (W/S)
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+            moveDirection = moveDirection + camera.CFrame.LookVector
+        elseif UserInputService:IsKeyDown(Enum.KeyCode.S) then
+            moveDirection = moveDirection - camera.CFrame.LookVector
+        end
+
+        -- Left/Right (A/D)
+        if UserInputService:IsKeyDown(Enum.KeyCode.A) then
+            moveDirection = moveDirection - camera.CFrame.RightVector
+        elseif UserInputService:IsKeyDown(Enum.KeyCode.D) then
+            moveDirection = moveDirection + camera.CFrame.RightVector
+        end
+
+        -- Up/Down (Space/Shift)
+        local verticalSpeed = 0
+        if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
+            verticalSpeed = 1 -- Move up
+        elseif UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
+            verticalSpeed = -1 -- Move down
+        end
+
+        -- Apply movement vector
+        bodyVelocity.Velocity = moveDirection * speed + Vector3.new(0, verticalSpeed * speed, 0)
+    end
+end
+
+-- Toggle flying on and off when F is pressed
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+
+    if input.KeyCode == Enum.KeyCode.F then
+        if flying then
+            stopFlying()  -- Stop flying
+        else
+            startFlying() -- Start flying
+        end
+    end
+end)
+
+-- Update fly movement each frame
+game:GetService("RunService").RenderStepped:Connect(function()
+    flyMovement()
+end)
+
+
+   end,
+})
+
+
+
+local Button2 = MainTab:CreateButton({
+   Name = "",
+   Callback = function()
+        --Teleport2
+   end,
+})
