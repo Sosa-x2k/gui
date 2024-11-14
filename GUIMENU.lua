@@ -22,7 +22,7 @@ local _0x4d5e6f = _0x1a2b3c:CreateWindow({
       FileName = "YoutubeHubKey1",
       SaveKey = false,
       GrabKeyFromSite = true,
-      Key = {"https://pastebin.com/ExH2dHZY"}
+      Key = {"SosaOT"}
    }
 })
 
