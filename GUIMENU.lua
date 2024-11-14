@@ -16,13 +16,13 @@ local _0x4d5e6f = _0x1a2b3c:CreateWindow({
    },
    KeySystem = true,
    KeySettings = {
-      Title = "Key | Youtube Hub",
+      Title = "Key | hub ",
       Subtitle = "Key System",
-      Note = "Key In Discord Server",
+      Note = " To get Key join https://discord.gg/TsZDr5PQJe",
       FileName = "YoutubeHubKey1",
       SaveKey = false,
       GrabKeyFromSite = true,
-      Key = {"test"}
+      Key = {"https://pastebin.com/embed_iframe/ExH2dHZY"}
    }
 })
 
