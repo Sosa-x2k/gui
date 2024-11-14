@@ -16,13 +16,13 @@ local _0x4d5e6f = _0x1a2b3c:CreateWindow({
    },
    KeySystem = true,
    KeySettings = {
-      Title = "Key | hub ",
+      Title = "Key | Youtube Hub",
       Subtitle = "Key System",
-      Note = " To get Key join https://discord.gg/TsZDr5PQJe",
+      Note = "Key In Discord Server",
       FileName = "YoutubeHubKey1",
       SaveKey = false,
       GrabKeyFromSite = true,
-      Key = {"SosaOT"}
+      Key = {"test"}
    }
 })
 
@@ -127,8 +127,6 @@ local _0x6f7g8h = _0x7d8e9f:CreateButton({
         local _0x78901def = 50
         local _0x89012def = 20
         local _0x90123def, _0x01234def
-		
-		--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
         local function _0x12345def()
             _0x67890def = true
@@ -143,34 +141,27 @@ local _0x6f7g8h = _0x7d8e9f:CreateButton({
             _0x01234def.Velocity = Vector3.new(0, _0x89012def, 0)
             _0x01234def.Parent = _0x56789def
         end
-		
-		--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
         local function _0x23456def()
             _0x67890def = false
             if _0x90123def then _0x90123def:Destroy() end
             if _0x01234def then _0x01234def:Destroy() end
         end
-		
-		--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
         local function _0x34567def()
             if _0x67890def then
                 local _0x45678def = Vector3.new()
-				--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
                 if _0xa1bcdef:IsKeyDown(Enum.KeyCode.W) then
                     _0x45678def = _0x45678def + _0x23456def.CFrame.LookVector
                 elseif _0xa1bcdef:IsKeyDown(Enum.KeyCode.S) then
                     _0x45678def = _0x45678def - _0x23456def.CFrame.LookVector
                 end
-				--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
                 if _0xa1bcdef:IsKeyDown(Enum.KeyCode.A) then
                     _0x45678def = _0x45678def - _0x23456def.CFrame.RightVector
                 elseif _0xa1bcdef:IsKeyDown(Enum.KeyCode.D) then
                     _0x45678def = _0x45678def + _0x23456def.CFrame.RightVector
-					--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
                 end
 
                 local _0x56789def = 0
@@ -179,7 +170,6 @@ local _0x6f7g8h = _0x7d8e9f:CreateButton({
                 elseif _0xa1bcdef:IsKeyDown(Enum.KeyCode.LeftShift) then
                     _0x56789def = -1
                 end
-				--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
                 _0x01234def.Velocity = _0x45678def * _0x78901def + Vector3.new(0, _0x56789def * _0x78901def, 0)
             end
@@ -187,35 +177,27 @@ local _0x6f7g8h = _0x7d8e9f:CreateButton({
 
         _0xa1bcdef.InputBegan:Connect(function(_0x67890def, _0x78901def)
             if _0x78901def then return end
-			--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
 
             if _0x67890def.KeyCode == Enum.KeyCode.F then
                 if _0x67890def then
                     _0x23456def()
                 else
-				--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
                     _0x12345def()
                 end
-				--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
             end
-			--3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
         end)
---3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
+
         game:GetService("RunService").RenderStepped:Connect(_0x34567def)
---3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
+
    end
 })
 
 local _0x8f9g0h = _0x7d8e9f:CreateButton({
---3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
    Name = "Inf Jump",
-   --3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
    Callback = function()
-   --3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
        game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
    end
 })
 
 
 
---3548345u385u38-53-4535-78934573485-345hj435h345h345bh34b535435359y734958346985y7b34698753468795b4387965437860543867953469
