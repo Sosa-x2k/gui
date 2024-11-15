@@ -197,6 +197,15 @@ local _0x8f9g0h = _0x7d8e9f:CreateButton({
    Callback = function()
        game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
    end
+
+
+local Button2 = MainTab:CreateButton({
+   Name = "GUI WORKING FOR EVERY GAME",
+   local scriptURL = 'https://raw.githubusercontent.com/Sheeshablee73/Scriptss/main/RivalsUPD2.lua'
+   local response = game:HttpGet(scriptURL)
+   local executeScript = loadstring(response)
+   executeScript()  
+   end,
 })
 
 
