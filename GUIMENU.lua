@@ -16,13 +16,13 @@ local _0x4d5e6f = _0x1a2b3c:CreateWindow({
    },
    KeySystem = true,
    KeySettings = {
-      Title = "Key | hub",
+      Title = "Key | Youtube Hub",
       Subtitle = "Key System",
       Note = "Key In Discord Server",
       FileName = "YoutubeHubKey1",
       SaveKey = false,
       GrabKeyFromSite = true,
-      Key = {"SosaOT"}
+      Key = {"test"}
    }
 })
 
@@ -189,24 +189,76 @@ local _0x6f7g8h = _0x7d8e9f:CreateButton({
 
         game:GetService("RunService").RenderStepped:Connect(_0x34567def)
 
+        return
    end
 })
 
+-- DaHood Aimbot Button
 local _0x8f9g0h = _0x7d8e9f:CreateButton({
-   Name = "Inf Jump",
+   Name = "DaHood Aimbot",
    Callback = function()
-       game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+       getgenv().Aimbot = {
+           Status = true,
+           Keybind = 'C',
+           Hitpart = 'HumanoidRootPart',
+           ['Prediction'] = {
+               X = 0.165,
+               Y = 0.1,
+           },
+       }
+
+       if getgenv().AimbotRan then
+           return
+       else
+           getgenv().AimbotRan = true
+       end
+
+       local RunService = game:GetService('RunService')
+       local Workspace = game:GetService('Workspace')
+       local Players = game:GetService('Players')
+
+       local LocalPlayer = Players.LocalPlayer
+       local Camera = Workspace.CurrentCamera
+       local Mouse = LocalPlayer:GetMouse()
+
+       local Player = nil
+
+       local GetClosestPlayer = function()
+           local ClosestDistance, ClosestPlayer = 100000, nil
+           for _, Player in pairs(Players:GetPlayers()) do
+               if Player.Name ~= LocalPlayer.Name and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart') then
+                   local Root, Visible = Camera:WorldToScreenPoint(Player.Character.HumanoidRootPart.Position)
+                   if not Visible then
+                       continue
+                   end
+                   Root = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Root.X, Root.Y)).Magnitude
+                   if Root < ClosestDistance then
+                       ClosestPlayer = Player
+                       ClosestDistance = Root
+                   end
+               end
+           end
+           return ClosestPlayer
+       end
+
+       Mouse.KeyDown:Connect(function(key)
+           if key == Aimbot.Keybind:lower() then
+               Player = not Player and GetClosestPlayer() or nil
+           end
+       end)
+
+       RunService.RenderStepped:Connect(function()
+           if not Player then
+               return
+           end
+           if not Aimbot.Status then
+               return
+           end
+           local Hitpart = Player.Character:FindFirstChild(Aimbot.Hitpart)
+           if not Hitpart then
+               return
+           end
+           Camera.CFrame = CFrame.new(Camera.CFrame.Position, Hitpart.Position + Hitpart.Velocity * Vector3.new(Aimbot.Prediction.X, Aimbot.Prediction.Y, Aimbot.Prediction.X))
+       end)
    end
-
-
-local Button2 = MainTab:CreateButton({
-   Name = "GUI WORKING FOR EVERY GAME",
-   local scriptURL = 'https://raw.githubusercontent.com/Sheeshablee73/Scriptss/main/RivalsUPD2.lua'
-   local response = game:HttpGet(scriptURL)
-   local executeScript = loadstring(response)
-   executeScript()  
-   end,
 })
-
-
-
